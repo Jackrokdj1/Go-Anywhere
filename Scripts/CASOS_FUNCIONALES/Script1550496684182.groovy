@@ -306,6 +306,7 @@ if ((((('SI'.equals(question) || 'Si'.equals(question)) || 'si'.equals(question)
 
         WebUI.closeBrowser()
     } else {
+		null
     }
 }
 
