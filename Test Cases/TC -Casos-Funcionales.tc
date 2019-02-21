@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>CASOS_FUNCIONALES</name>
+   <name>TC -Casos-Funcionales</name>
    <tag></tag>
    <comment></comment>
    <testCaseGuid>b619c980-5467-4fdf-a7bb-7d5d94c46113</testCaseGuid>

@@ -26,6 +26,8 @@ import java.util.GregorianCalendar as GregorianCalendar
 import java.util.Date as Date
 import java.text.SimpleDateFormat as SimpleDateFormat
 import java.io.File as File
+import java.util.Locale as Locale
+import javax.swing.JOptionPane as JOptionPane
 
 String hour = findTestData('GoAnywhere').getValue(4, 1)
 
@@ -96,11 +98,37 @@ WebUI.click(findTestObject('Page_GoAnywhere 6.0.2 - Upload Files/span_Upload'))
 
 WebUI.delay(2)
 
+Locale locale = Locale.getDefault()
+
 Robot robot = new Robot()
 
 StringSelection selection = new StringSelection(ruta)
 
 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null)
+
+robot.keyPress(KeyEvent.VK_ALT)
+
+robot.keyPress(KeyEvent.VK_SPACE)
+
+robot.keyRelease(KeyEvent.VK_ALT)
+
+robot.keyRelease(KeyEvent.VK_SPACE)
+
+robot.keyPress(KeyEvent.VK_DOWN)
+
+robot.keyRelease(KeyEvent.VK_DOWN)
+
+robot.keyPress(KeyEvent.VK_DOWN)
+
+robot.keyRelease(KeyEvent.VK_DOWN)
+
+robot.keyPress(KeyEvent.VK_DOWN)
+
+robot.keyRelease(KeyEvent.VK_DOWN)
+
+robot.keyPress(KeyEvent.VK_ENTER)
+
+robot.keyRelease(KeyEvent.VK_ENTER)
 
 robot.setAutoDelay(1000)
 
@@ -126,13 +154,33 @@ robot.mousePress(InputEvent.BUTTON1_MASK)
 
 robot.mouseRelease(InputEvent.BUTTON1_MASK)
 
-robot.keyPress(KeyEvent.VK_CONTROL)
+String lenguaje = 'L.' + locale
 
-robot.keyPress(KeyEvent.VK_E)
+if ((((((((((((((((('L.es_CO'.equals(lenguaje) || 'L.es_US'.equals(lenguaje)) || 'L.es_MX'.equals(lenguaje)) || 'L.es_ES'.equals(
+    lenguaje)) || 'L.es_PE'.equals(lenguaje)) || 'L.es_AR'.equals(lenguaje)) || 'L.es_BO'.equals(lenguaje)) || 'L.es_CR'.equals(
+    lenguaje)) || 'L.es_DO'.equals(lenguaje)) || 'L.es_EC'.equals(lenguaje)) || 'L.es_GT'.equals(lenguaje)) || 'L.es_HN'.equals(
+    lenguaje)) || 'L.es_NI'.equals(lenguaje)) || 'L.es_PY'.equals(lenguaje)) || 'L.es_PA'.equals(lenguaje)) || 'L.es_PR'.equals(
+    lenguaje)) || 'L.es_UY'.equals(lenguaje)) || 'L.es_VE'.equals(lenguaje)) {
+    robot.keyPress(KeyEvent.VK_CONTROL)
 
-robot.keyRelease(KeyEvent.VK_CONTROL)
+    robot.keyPress(KeyEvent.VK_E)
 
-robot.keyRelease(KeyEvent.VK_E)
+    robot.keyRelease(KeyEvent.VK_CONTROL)
+
+    robot.keyRelease(KeyEvent.VK_E)
+} else {
+    if (((((((((('L.en_US'.equals(lenguaje) || 'L.en_BZ'.equals(lenguaje)) || 'L.en_CA'.equals(lenguaje)) || 'L.en_CB'.equals(
+        lenguaje)) || 'L.en_GB'.equals(lenguaje)) || 'L.en_IN'.equals(lenguaje)) || 'L.en_IE'.equals(lenguaje)) || 'L.en_JM'.equals(
+        lenguaje)) || 'L.en_NZ'.equals(lenguaje)) || 'L.en_PH'.equals(lenguaje)) || 'L.en_ZA'.equals(lenguaje)) {
+        robot.keyPress(KeyEvent.VK_CONTROL)
+
+        robot.keyPress(KeyEvent.VK_A)
+
+        robot.keyRelease(KeyEvent.VK_CONTROL)
+
+        robot.keyRelease(KeyEvent.VK_A)
+    }
+}
 
 robot.setAutoDelay(1000)
 
@@ -140,7 +188,7 @@ robot.keyPress(KeyEvent.VK_ENTER)
 
 robot.keyRelease(KeyEvent.VK_ENTER)
 
-WebUI.waitForElementPresent(findTestObject('Page_GoAnywhere 6.0.2 - Upload Files/span_Upload Complete'), 0)
+WebUI.waitForElementPresent(findTestObject('Page_GoAnywhere 6.0.2 - Upload Files/span_Upload Complete'), 7200)
 
 WebUI.click(findTestObject('Page_GoAnywhere 6.0.2 - Edit Scheduler/span_Workflows'))
 
@@ -306,7 +354,7 @@ if ((((('SI'.equals(question) || 'Si'.equals(question)) || 'si'.equals(question)
 
         WebUI.closeBrowser()
     } else {
-		null
+        JOptionPane.showMessageDialog(null, 'Error pregunta validar log');
     }
 }
 
